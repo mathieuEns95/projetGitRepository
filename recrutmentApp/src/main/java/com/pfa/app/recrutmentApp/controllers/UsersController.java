@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/recrutment/register")
 public class UsersController {
     @RequestMapping(value = "/userRegistration", method = RequestMethod.GET)
+
     public String addCandidate(String id, String firstName, String lastName,
                           String adress, String email, String nationalite,
                           int phone, String gender, String birthday, String pasword){

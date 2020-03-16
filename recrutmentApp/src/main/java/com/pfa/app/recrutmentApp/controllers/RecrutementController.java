@@ -7,10 +7,15 @@ import org.springframework.web.bind.annotation.RestController;
 public class RecrutementController {
     @RequestMapping(value =  "/checkConnection", method = RequestMethod.GET)
     public boolean connect(String username, String password){
-        if (username == "admin" && password == "root"){
+        System.out.println(username);
+        System.out.println(password);
+        if (username.equals("admin") && password.equals("root")){
             return true;
         }else {
+
             return false;
         }
     }
+
+
 }
