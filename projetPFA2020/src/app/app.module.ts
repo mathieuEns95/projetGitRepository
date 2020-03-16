@@ -8,6 +8,8 @@ import { LoginRhComponent } from './login-rh/login-rh.component';
 import { LoginUserComponent } from './login-user/login-user.component';
 import { LoginNewUserComponent } from './login-new-user/login-new-user.component';
 import { LoginNewRhComponent } from './login-new-rh/login-new-rh.component';
+import { CandidatSpaceComponent } from './candidat-space/candidat-space.component';
+import { RhSpaceComponent } from './rh-space/rh-space.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { LoginNewRhComponent } from './login-new-rh/login-new-rh.component';
     LoginRhComponent,
     LoginUserComponent,
     LoginNewUserComponent,
-    LoginNewRhComponent
+    LoginNewRhComponent,
+    CandidatSpaceComponent,
+    RhSpaceComponent
   ],
   imports: [
     BrowserModule,

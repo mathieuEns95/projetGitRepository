@@ -219,100 +219,72 @@
   <img
     width="50"
     alt="Logo FOD"
-    src="../assets/images/android-icon-192x192.png"
+    src="../assets/images/user.png"
   />
-  <span>Welcome Candidat</span>
+  <span>Welcome Admin_name </span>
   <div class="spacer"></div>
 </div>
 
 <div class="content" role="main">
 
-  <form action="#" class="text-center border border-light p-5 mt-0 ml-n5">
-    <div class="card highlight-card card-small">
-      <div class="div-rouge p-2" style="background: white; border: #eeeeee solid 1px; border-radius: 50%">
-        <img
-          class="logo-fod"
-          width="50"
-          alt="Logo FOD"
-          src="../assets/images/android-icon-192x192.png"
-        />
-      </div>
-    </div>
-    <p class="h4 mb-2 mt-3">Log in</p>
-    <!-- nom -->
-    <input
-      type="text"
-      class="form-control mb-4"
-      placeholder="First name"
-    >
-    <!-- prenom -->
-    <input
-      type="text"
-      class="form-control mb-4"
-      placeholder="Last name"
-    >
-    <!-- Adress -->
-    <input
-      type="text"
-      class="form-control mb-4"
-      placeholder="Adress"
-    >
-    <!-- E-mail -->
-    <input
-      type="email"
-      class="form-control mb-4"
-      placeholder="E-mail"
-    >
-    <!-- Nationalite -->
-    <input
-      type="text"
-      class="form-control mb-4"
-      placeholder="Nationality"
-    >
-    <!-- Nationality -->
-    <input
-      type="number"
-      class="form-control mb-4"
-      placeholder="Phone number"
-    >
-    <div class="form-group row">
-      <label for="example-date-input" class="col-2 col-form-label">Gender</label>
-      <div class="col-10">
-        <select class="form-control" id="exampleFormControlSelect1">
-          <option>Male</option>
-          <option>Female</option>
-        </select>
-      </div>
-    </div>
-    <div class="form-group row">
-      <label for="example-date-input" class="col-2 col-form-label">Birthday</label>
-      <div class="col-10">
-        <input class="form-control" type="date" value="2011-08-19" id="example-date-input">
-      </div>
-    </div>
-    <!-- Password -->
-    <input
-      type="password"
-      id="defaultLoginFormPassword"
-      class="form-control mb-4"
-      placeholder="Password"
-    >
-    <!-- Confirm password -->
-    <input
-      type="password"
-      id="defaultLoginFormPasswordConfirm"
-      class="form-control mb-4"
-      placeholder="Password Confirmation"
-    >
-    <!-- Sign in button -->
-    <button style="width: 100%" block="true" class="btn btn-primary mb-2 mt-1" type="submit">Log in</button>
 
-    <!-- Register -->
-    <p class="mb-n4">A member ?
-      <a [routerLink]="['/login-user']">Sign in</a>
-    </p>
+  <table id="customers">
+    <tr>
+      <th>NOM</th>
+      <th>PRENOM</th>
+      <th>CV</th>
+      <th>STATUT</th>
+    </tr>
+    <tr>
+      <td>manel</td>
+      <td>benrached</td>
+      <td>aa.pdf</td>
+      <td style="color: orange">cv classification</td>
+    </tr>
+    <tr>
+      <td>Madhi</td>
+      <td>Amine</td>
+      <td>aa.pdf</td>
+      <td style="color: orange">cv classification</td>
+    </tr>
+    <tr>
+      <td>Mathieu</td>
+      <td>Festel</td>
+      <td>cc.pdf</td>
+      <td style="color: darkblue">test technique</td>
+    </tr>
 
-  </form>
+
+    <tr>
+      <td>Yassine</td>
+      <td>Hammemi</td>
+      <td>aa.pdf</td>
+      <td style="color: orangered">dinied</td>
+    </tr>
+    <tr>
+      <td>Cedric</td>
+      <td>Monfo</td>
+      <td>aa.pdf</td>
+      <td style="color: darkgreen">admited</td>
+    </tr>
+    <tr>
+      <td>Amiri</td>
+      <td>Lobna</td>
+      <td>aa.pdf</td>
+      <td style="color: darkgreen">admited</td>
+    </tr>
+    <tr>
+      <td>Konlak</td>
+      <td>Audrey</td>
+      <td>aa.pdf</td>
+      <td style="color: darkgreen">admited</td>
+    </tr>
+
+
+  </table>
+
+
+
   <!-- Footer -->
   <footer>
     All rights reserved &copy; 2020
