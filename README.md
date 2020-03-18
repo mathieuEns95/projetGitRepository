@@ -18,6 +18,7 @@ git pull                                //pour recuperer le projet
 git push                               //pour faire la mise a jour du projet avec notre derniere version
 
 
+NB: faut etre place au meme
 pour tout savoir sur la collaboration sur github je vous reccommande ces videos
 https://www.youtube.com/watch?v=hPfgekYUKgk  
 https://www.youtube.com/watch?v=TlQbEWHt3pY&t=516s
