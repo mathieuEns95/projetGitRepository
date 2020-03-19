@@ -11,6 +11,7 @@ import { LoginNewRhComponent } from './login-new-rh/login-new-rh.component';
 import { CandidatSpaceComponent } from './candidat-space/candidat-space.component';
 import { RhSpaceComponent } from './rh-space/rh-space.component';
 import {FormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import {FormsModule} from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
