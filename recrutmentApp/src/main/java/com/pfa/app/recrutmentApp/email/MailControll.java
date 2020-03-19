@@ -1,4 +1,4 @@
-package com.pfa.app.recrutmentApp.controllers.email;
+package com.pfa.app.recrutmentApp.email;
 import java.io.File;
 
 import javax.mail.MessagingException;
@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;

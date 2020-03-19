@@ -1,4 +1,4 @@
-package com.pfa.app.recrutmentApp.controllers.email;
+package com.pfa.app.recrutmentApp.email;
 
 import java.util.Properties;
 import org.springframework.context.annotation.Bean;
