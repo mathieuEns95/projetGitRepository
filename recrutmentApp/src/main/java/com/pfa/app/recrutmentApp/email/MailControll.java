@@ -1,6 +1,7 @@
 package com.pfa.app.recrutmentApp.email;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
@@ -28,18 +29,18 @@ public class MailControll {
 
         MimeMessageHelper helper = new MimeMessageHelper(message, multipart);
 
-        helper.setTo("manelbenrached11@gmail.com");
+        helper.setTo("edwigekammoe@gmail.com");
         helper.setSubject("Test email with attachments");
 
         helper.setText("Hello, Im testing email with attachments!");
 
-        String path1 = "/C:/Users/Dell/Downloads/test.txt";
+        String path1 = "E:/cv.pdf";
         FileSystemResource file1 = new FileSystemResource(new File(path1));
-        helper.addAttachment("Txt file", file1);
+        helper.addAttachment("PDF file", file1);
 
 
         emailSender.send(message);
-
+        System.out.println("done...");
         return "Email Sent!";
     }
 
