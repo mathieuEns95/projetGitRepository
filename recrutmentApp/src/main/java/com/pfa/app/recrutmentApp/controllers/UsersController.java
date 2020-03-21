@@ -1,13 +1,15 @@
 package com.pfa.app.recrutmentApp.controllers;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import com.pfa.app.recrutmentApp.dao.UserRepository;
+import com.pfa.app.recrutmentApp.models.User;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
-@RequestMapping("/recrutment/register")
 public class UsersController {
-    @RequestMapping(value = "/userRegistration", method = RequestMethod.GET)
+
 
     public String addCandidate(String id, String firstName, String lastName,
                           String adress, String email, String nationalite,
@@ -34,6 +36,29 @@ public class UsersController {
                 "\n email : "+email+
                 "\n gender : "+gender+
                 "\n password : "+password;
+    }
+
+    @Autowired
+    private UserRepository repository;
+    @PostMapping("/saveUsers")
+    public String saveUser(@RequestBody List<User> users) {
+        repository.saveAll(users);
+        return users.size() + " record saved..";
+    }
+
+    @GetMapping("/getAll")
+    public List<User> getAllUsers() {
+        return (List<User>) repository.findAll();
+    }
+
+    @GetMapping("/getUserById/{id}")
+    public User findUserById(@PathVariable int id) {
+        return repository.findById(id);
+    }
+
+    @GetMapping("/getUserByName/{name}")
+    public User findUserByName(@PathVariable String name) {
+        return repository.findByName(name);
     }
 
 }
