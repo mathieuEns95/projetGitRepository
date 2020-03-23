@@ -9,23 +9,20 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.logging.Logger ;
 
 @RestController
-public class RegistrationController {
+public class RecrutmentSendMailController {
+
+    //send mail to user with his status
     @Autowired
     private NotificationService notificationService;
 
-    @RequestMapping("/register")
-    public String signup(){
-        return "svp sign up for our service";
-    }
-
-    @RequestMapping("/signup-succes")
-    public String signUpSucess(){
-
+    @RequestMapping("/sendMailUser")
+    public String signUpSucess(String status){
         try {
-            notificationService.sendMessage();
+            notificationService.sendMessage(status);
         }catch (MailException e){
             return "Error : "+e.getMessage();
         }
-        return "register sucess ..";
+
+        return "Mail sended...";
     }
 }

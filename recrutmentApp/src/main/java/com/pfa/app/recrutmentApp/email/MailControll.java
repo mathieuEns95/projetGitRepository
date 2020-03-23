@@ -20,7 +20,7 @@ public class MailControll {
     public JavaMailSender emailSender;
 
     @ResponseBody
-    @RequestMapping("/sendEmail")
+    @RequestMapping("/sendMailWithAttachment")
     public String sendAttachmentEmail() throws MessagingException {
 
         MimeMessage message = emailSender.createMimeMessage();
@@ -41,7 +41,7 @@ public class MailControll {
 
         emailSender.send(message);
         System.out.println("done...");
-        return "Email Sent!";
+        return "Email Sent !";
     }
 
 }
