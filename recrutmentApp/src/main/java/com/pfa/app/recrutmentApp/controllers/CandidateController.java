@@ -12,19 +12,25 @@ public class CandidateController {
 
     @RequestMapping("/testCandidateWebService")
     public String addCandidate(String id, String firstName, String lastName,
-                          String adress, String email, String nationalite,
-                          int phone, String gender, String birthday, String pasword){
+                               String adress, String email, String nationalite,
+                               int phone, String gender, String birthday,
+                               String pasword, String passwordConfirm){
 
-        return "id : "+id+
-                "<br> first name : " +firstName+
-                "<br> last name : "+lastName+
-                "<br> address : "+adress+
-                "<br> email : "+email+
-                "<br> nationality : "+nationalite+
-                "<br> phone : "+phone+
-                "<br> gender : "+gender+
-                "<br> birthday : "+birthday+
-                "<br> password : "+pasword;
+        if (pasword.equals(passwordConfirm)){
+            return "id : "+id+
+                    "<br> first name : " +firstName+
+                    "<br> last name : "+lastName+
+                    "<br> address : "+adress+
+                    "<br> email : "+email+
+                    "<br> nationality : "+nationalite+
+                    "<br> phone : "+phone+
+                    "<br> gender : "+gender+
+                    "<br> birthday : "+birthday+
+                    "<br> password : "+pasword;
+        }else{
+            return "Verifier vos champ mot de pass";
+        }
+
     }
 
 //    @Autowired

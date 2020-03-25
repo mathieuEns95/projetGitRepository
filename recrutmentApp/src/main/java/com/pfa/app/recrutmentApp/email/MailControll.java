@@ -29,7 +29,7 @@ public class MailControll {
 
         MimeMessageHelper helper = new MimeMessageHelper(message, multipart);
 
-        helper.setTo("edwigekammoe@gmail.com");
+        helper.setTo("mathieu.ntono2@gmail.com");
         helper.setSubject("Test email with attachments");
 
         helper.setText("Hello, Im testing email with attachments!");
