@@ -1,9 +1,9 @@
 export class AuthLoginInfo {
-    useremail: string;
+    email: string;
     password: string;
 
-    constructor(useremail: string, password: string) {
-        this.useremail = useremail;
+    constructor(email: string, password: string) {
+        this.email = email;
         this.password = password;
     }
 }

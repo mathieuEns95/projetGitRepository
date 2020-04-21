@@ -1,29 +1,15 @@
 export class SignUpInfo {
-    firstname: string;
-    lastname: string;
-    adresse: string;
-    email: string;
-    nationality: string;
-    phonenumber: string;
-    gender: string;
-    birthday: string;
-    password: string;
-    passwordConfirm: string;
-    role: string[];
+  first_name: string;
+  last_name: string;
+  email: string;
+  role: string[];
+  password: string;
 
-  constructor(firstname: string, lastname: string, adresse: string,
-              email: string, nationality: string, phonenumber: string,
-              gender: string, birthday: string, password: string,
-              role: string[]) {
-    this.firstname = firstname;
-    this.lastname = lastname;
-    this.adresse = adresse;
+  constructor(first_name: string, last_name: string, email: string, password: string) {
+    this.first_name = first_name;
+    this.last_name = last_name;
     this.email = email;
-    this.nationality = nationality;
-    this.phonenumber = phonenumber;
-    this.gender = gender;
-    this.birthday = birthday;
     this.password = password;
-    this.role = ['candidate'];
+    this.role = ['user'];
   }
 }

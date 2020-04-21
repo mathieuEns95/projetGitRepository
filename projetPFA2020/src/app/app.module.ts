@@ -4,8 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { LoginRhComponent } from './login-rh/login-rh.component';
-import { LoginUserComponent } from './login-user/login-user.component';
+ import { LoginUserComponent } from './login-user/login-user.component';
 import { LoginNewUserComponent } from './login-new-user/login-new-user.component';
 import { LoginNewRhComponent } from './login-new-rh/login-new-rh.component';
 import { CandidatSpaceComponent } from './candidat-space/candidat-space.component';
@@ -17,8 +16,7 @@ import {HttpClientModule} from '@angular/common/http';
   declarations: [
     AppComponent,
     HomeComponent,
-    LoginRhComponent,
-    LoginUserComponent,
+     LoginUserComponent,
     LoginNewUserComponent,
     LoginNewRhComponent,
     CandidatSpaceComponent,

@@ -246,7 +246,6 @@
     src="../assets/images/user.png"
   />
   <span>Welcome User_name</span>
-
   <img
     width="30"
     alt="Logo FOD"
@@ -259,8 +258,14 @@
 </div>
 
 <div class="content" role="main">
+  <div *ngIf="isLoggedIn; else loggedOut">
+    Logged in as {{roles}}
+    <button class="btn btn-secondary" (click)="logout()">Logout</button> </div>
+
+
 
   <form>
+
     <div class="form-group">
       <label for="exampleFormControlFile1">Envoyer votre cv : </label>
       <input type="file" id="exampleFormControlFile1" name="file"/>
@@ -269,8 +274,12 @@
       <input type="reset" value="Annuler" />
     </div>
   </form>
-
-
+  <div *ngIf="info.token; else loggedOut">
+    <p>
+     <!-- <strong>email:</strong> {{info.email}}<br/>-->
+     </p>
+    <button class="btn btn-secondary" [routerLink]="['/login-user']" (click)="logout()">Logout</button>
+  </div>
   <!-- Footer -->
   <footer>
     All rights reserved &copy; 2020
@@ -281,11 +290,3 @@
   </svg>
 
 </div>
-
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->

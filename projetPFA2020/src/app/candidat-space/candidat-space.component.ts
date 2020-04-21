@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {TokenStorageService} from '../auth/token-storage.service';
+import {AuthLoginInfo} from '../auth/login-info';
 
 @Component({
   selector: 'app-candidat-space',
@@ -7,12 +9,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CandidatSpaceComponent implements OnInit {
   private envoiFichierService: any;
+  form: any = {};
+  isLoggedIn = false;
+  isLoginFailed = false;
+  errorMessage = '';
+  roles: string[] = [];
+  private loginInfo: AuthLoginInfo;
+  info: any;
 
-  constructor() { }
-  fichierAEnvoyer: File = null;
+  constructor(private token: TokenStorageService) {
+  }
 
   ngOnInit() {
+    this.info = {
+      token: this.token.getToken(),
+      username: this.token.getUsername(),
+      authorities: this.token.getAuthorities()
+    };
   }
+
+
+  logout() {
+    this.token.signOut();
+   }
+
+  fichierAEnvoyer: File = null;
+
   envoiFichier(fichiers: FileList) {
     this.fichierAEnvoyer = fichiers.item(0);
   }
@@ -24,3 +46,4 @@ export class CandidatSpaceComponent implements OnInit {
     });
   }
 }
+
