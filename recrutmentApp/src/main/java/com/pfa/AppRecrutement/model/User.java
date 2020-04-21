@@ -15,9 +15,7 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 @Table(name = "user", uniqueConstraints = {
-        @UniqueConstraint(columnNames = {
-                "username"
-        }),
+
         @UniqueConstraint(columnNames = {
                 "email"
         })
@@ -30,11 +28,11 @@ public class User {
 
     @NotBlank
     @Size(min=3, max = 50)
-    private String name;
+    private String first_name;
 
     @NotBlank
     @Size(min=3, max = 50)
-    private String username;
+    private String last_name;
 
     @NaturalId
     @NotBlank
@@ -55,9 +53,9 @@ public class User {
     public User() {
     }
 
-    public User(String name, String username, String email, String password) {
-        this.name = name;
-        this.username = username;
+    public User(String first_name, String last_name, String email, String password) {
+        this.first_name = first_name;
+        this.last_name = last_name;
         this.email = email;
         this.password = password;
     }
@@ -70,21 +68,6 @@ public class User {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
 
     public String getEmail() {
         return email;
@@ -96,6 +79,22 @@ public class User {
 
     public String getPassword() {
         return password;
+    }
+
+    public String getFirst_name() {
+        return first_name;
+    }
+
+    public void setFirst_name(String first_name) {
+        this.first_name = first_name;
+    }
+
+    public String getLast_name() {
+        return last_name;
+    }
+
+    public void setLast_name(String last_name) {
+        this.last_name = last_name;
     }
 
     public void setPassword(String password) {
@@ -114,8 +113,8 @@ public class User {
     public String toString() {
         return "User{" +
                 "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", username='" + username + '\'' +
+                ", first_name='" + first_name + '\'' +
+                ", last_name='" + last_name + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 '}';

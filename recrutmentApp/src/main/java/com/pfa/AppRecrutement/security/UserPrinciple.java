@@ -16,9 +16,9 @@ public class UserPrinciple implements UserDetails {
 
     private Long id;
 
-    private String name;
+    private String first_name;
 
-    private String username;
+    private String last_name;
 
     private String email;
 
@@ -27,12 +27,12 @@ public class UserPrinciple implements UserDetails {
 
     private Collection<? extends GrantedAuthority> authorities;
 
-    public UserPrinciple(Long id, String name,
-                         String username, String email, String password,
+    public UserPrinciple(Long id, String first_name,
+                         String last_name, String email, String password,
                          Collection<? extends GrantedAuthority> authorities) {
         this.id = id;
-        this.name = name;
-        this.username = username;
+        this.first_name = first_name;
+        this.last_name = last_name;
         this.email = email;
         this.password = password;
         this.authorities = authorities;
@@ -45,8 +45,8 @@ public class UserPrinciple implements UserDetails {
 
         return new UserPrinciple(
                 user.getId(),
-                user.getName(),
-                user.getUsername(),
+                user.getFirst_name(),
+                user.getLast_name(),
                 user.getEmail(),
                 user.getPassword(),
                 authorities
@@ -57,23 +57,38 @@ public class UserPrinciple implements UserDetails {
         return id;
     }
 
-    public String getName() {
-        return name;
+
+    public String getFirst_name() {
+        return first_name;
     }
 
-    public String getEmail() {
-        return email;
+    public void setFirst_name(String first_name) {
+        this.first_name = first_name;
     }
 
-    @Override
-    public String getUsername() {
-        return username;
+    public String getLast_name() {
+        return last_name;
+    }
+
+    public void setLast_name(String last_name) {
+        this.last_name = last_name;
     }
 
     @Override
     public String getPassword() {
         return password;
     }
+
+    @Override
+    public String getUsername() {
+        return null;
+    }
+
+     public String getEmail() {
+        return email;
+    }
+
+
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
