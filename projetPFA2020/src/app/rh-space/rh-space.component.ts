@@ -9,11 +9,20 @@ import {Router} from "@angular/router";
 })
 export class RhSpaceComponent implements OnInit {
   candidates: any;
+  adminLastName:any;
+
 
   constructor(private access: AccessService, private router: Router) {
   }
 
   ngOnInit() {
+    this.access.getResource("http://localhost:8080/humanResources")
+      .subscribe(data => {
+        this.adminLastName = data;
+
+      }, error => {
+        console.log(error);
+      });
   }
 
   afficherCandidates() {
@@ -27,6 +36,6 @@ export class RhSpaceComponent implements OnInit {
   }
 
   onSendEmail(c: any) {
-    
+
   }
 }
