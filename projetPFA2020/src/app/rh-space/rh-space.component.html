@@ -227,60 +227,37 @@
 
 <div class="content" role="main">
 
-
-  <table id="customers">
+  <td> <a class="btn btn-success" (click)="afficherCandidates()"> Liste des Candidats</a></td>
+  <table *ngIf="candidates" id="candidates" class="table table-striped">
     <tr>
-      <th>NOM</th>
-      <th>PRENOM</th>
-      <th>CV</th>
-      <th>STATUT</th>
-    </tr>
-    <tr>
-      <td>manel</td>
-      <td>benrached</td>
-      <td>aa.pdf</td>
-      <td style="color: orange">cv classification</td>
-    </tr>
-    <tr>
-      <td>Madhi</td>
-      <td>Amine</td>
-      <td>aa.pdf</td>
-      <td style="color: orange">cv classification</td>
-    </tr>
-    <tr>
-      <td>Mathieu</td>
-      <td>Festel</td>
-      <td>cc.pdf</td>
-      <td style="color: darkblue">test technique</td>
-    </tr>
+      <th>USERNAME</th>
+      <th>FIRSTNAME</th>
+      <th>LASTNAME</th>
+      <th>ADDRESS</th>
+      <th>EMAIL</th>
+      <th>PHONENUMBER</th>
+      <th>GENDER</th>
+      <th>STATUS</th>
+      <th>Envoyer un email</th>
 
 
-    <tr>
-      <td>Yassine</td>
-      <td>Hammemi</td>
-      <td>aa.pdf</td>
-      <td style="color: orangered">dinied</td>
+
     </tr>
-    <tr>
-      <td>Cedric</td>
-      <td>Monfo</td>
-      <td>aa.pdf</td>
-      <td style="color: darkgreen">admited</td>
-    </tr>
-    <tr>
-      <td>Amiri</td>
-      <td>Lobna</td>
-      <td>aa.pdf</td>
-      <td style="color: darkgreen">admited</td>
-    </tr>
-    <tr>
-      <td>Konlak</td>
-      <td>Audrey</td>
-      <td>aa.pdf</td>
-      <td style="color: darkgreen">admited</td>
-    </tr>
+    <tr *ngFor="let c of candidates._embedded.candidates">
+
+      <td> {{c.username}}</td>
+      <td> {{c.firstname}}</td>
+      <td> {{c.lastname}}</td>
+      <td> {{c.address}}</td>
+      <td> {{c.email}}</td>
+      <td> {{c.phonenumber}}</td>
+      <td> {{c.gender}}</td>
+      <td> {{c.status}}</td>
+      <td> <a class="btn btn-success" (click)="onSendEmail(c)"> Edit</a></td>
 
 
+
+    </tr>
   </table>
 
 
