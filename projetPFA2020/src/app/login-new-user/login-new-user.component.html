@@ -227,7 +227,7 @@
 
 <div class="content" role="main">
 
-  <form action="#" class="text-center border border-light p-5 mt-0 ml-n5">
+  <form class="text-center border border-light p-5 mt-0 ml-n5" #f="ngForm" (ngSubmit)="onSaveCandidates(f.value)">
     <div class="card highlight-card card-small">
       <div class="div-rouge p-2" style="background: white; border: #eeeeee solid 1px; border-radius: 50%">
         <img
@@ -239,55 +239,75 @@
       </div>
     </div>
     <p class="h4 mb-2 mt-3">Log in</p>
-    <!-- nom -->
+    <!-- username -->
+    <input
+      type="text"
+      class="form-control mb-4"
+      placeholder="Username"
+      name="username"
+      ngModel
+    >
+    <!-- Firstname -->
     <input
       type="text"
       class="form-control mb-4"
       placeholder="First name"
+      name="firstname"
+      ngModel
     >
     <!-- prenom -->
     <input
       type="text"
       class="form-control mb-4"
       placeholder="Last name"
+      name ="lastname"
+      ngModel
     >
     <!-- Adress -->
     <input
       type="text"
       class="form-control mb-4"
-      placeholder="Adress"
+      placeholder="Address"
+      name ="address"
+      ngModel
     >
     <!-- E-mail -->
     <input
       type="email"
       class="form-control mb-4"
       placeholder="E-mail"
+      name="email"
+      ngModel
     >
-    <!-- Nationalite -->
+    <!-- Nationality -->
     <input
       type="text"
       class="form-control mb-4"
       placeholder="Nationality"
+      name="nationality"
+      ngModel
     >
-    <!-- Nationality -->
+    <!-- Phone Number -->
     <input
       type="number"
       class="form-control mb-4"
       placeholder="Phone number"
+      name="phonenumber"
+      ngModel
     >
-    <div class="form-group row">
+    <div class="form-group row" >
       <label for="example-date-input" class="col-2 col-form-label">Gender</label>
       <div class="col-10">
-        <select class="form-control" id="exampleFormControlSelect1">
+        <select class="form-control" id="exampleFormControlSelect1" name="gender" ngModel>
           <option>Male</option>
           <option>Female</option>
         </select>
       </div>
     </div>
-    <div class="form-group row">
+    <div class="form-group row" >
       <label for="example-date-input" class="col-2 col-form-label">Birthday</label>
       <div class="col-10">
-        <input class="form-control" type="date" value="2011-08-19" id="example-date-input">
+        <input class="form-control" type="date" value="2011-08-19" id="example-date-input" name="birthday" ngModel>
       </div>
     </div>
     <!-- Password -->
@@ -296,14 +316,10 @@
       id="defaultLoginFormPassword"
       class="form-control mb-4"
       placeholder="Password"
+      name="password"
+      ngModel
     >
-    <!-- Confirm password -->
-    <input
-      type="password"
-      id="defaultLoginFormPasswordConfirm"
-      class="form-control mb-4"
-      placeholder="Password Confirmation"
-    >
+
     <!-- Sign in button -->
     <button style="width: 100%" block="true" class="btn btn-primary mb-2 mt-1" type="submit">Log in</button>
 
