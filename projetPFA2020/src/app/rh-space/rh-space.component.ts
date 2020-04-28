@@ -12,6 +12,15 @@ export class RhSpaceComponent implements OnInit {
 
   constructor(private userService: UserService) {
   }
+  ngOnInit() {
+    this.info = {
+      token: this.token.getToken(),
+      username: this.token.getUsername(),
+      authorities: this.token.getAuthorities()
+    };
+  }
+
+
 
   ngOnInit() {
     this.userService.getRHBoard().subscribe(
