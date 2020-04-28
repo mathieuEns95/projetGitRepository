@@ -1,4 +1,4 @@
-package com.pfa.AppRecrutement.model;
+package com.pfa.AppRecrutement.model.jwtForm;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;

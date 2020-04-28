@@ -1,4 +1,4 @@
-package com.pfa.AppRecrutement.model;
+package com.pfa.AppRecrutement.model.jwtForm;
 
 public class ResponseMessage {
     private String message;

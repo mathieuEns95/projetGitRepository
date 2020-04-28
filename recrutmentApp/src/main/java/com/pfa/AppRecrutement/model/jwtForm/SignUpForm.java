@@ -1,4 +1,4 @@
-package com.pfa.AppRecrutement.model;
+package com.pfa.AppRecrutement.model.jwtForm;
 
 import java.util.Set;
 

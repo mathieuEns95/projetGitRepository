@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AuthLoginInfo} from '../auth/login-info';
 import {AuthService} from '../auth/auth.service';
 import {TokenStorageService} from '../auth/token-storage.service';
@@ -19,7 +19,9 @@ export class LoginUserComponent implements OnInit {
   private loginInfo: AuthLoginInfo;
 
   constructor(private authService: AuthService, private tokenStorage: TokenStorageService,
-              private router: Router) { }
+              private router: Router) {
+  }
+
 
   ngOnInit() {
     if (this.tokenStorage.getToken()) {
@@ -44,18 +46,13 @@ export class LoginUserComponent implements OnInit {
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         this.roles = this.tokenStorage.getAuthorities();
-      // this.reloadPage();
-       this.router.navigate(['/candidat-space']);
-      },
-      error => {
-        console.log(error);
-        this.errorMessage = error.error.message;
-        this.isLoginFailed = true;
-      }
-    );
-  }
+        // this.reloadPage();
+        if (this.roles.indexOf('ROLE_RH') > -1) {
+          this.router.navigate(['/rh-space']);
+        } else {
 
-  reloadPage() {
-    window.location.reload();
-  }
-}
+          this.router.navigate(['/candidat-space']);
+
+        }
+      });
+  }}

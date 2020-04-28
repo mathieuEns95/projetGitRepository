@@ -284,7 +284,12 @@
   </table>
 
 
-
+  <div *ngIf="info.token; else loggedOut">
+    <p>
+      <!-- <strong>email:</strong> {{info.email}}<br/>-->
+    </p>
+    <button class="btn btn-secondary" [routerLink]="['/login-user']" (click)="logout()">Logout</button>
+  </div>
   <!-- Footer -->
   <footer>
     All rights reserved &copy; 2020

@@ -6,7 +6,11 @@ import java.util.Set;
 import javax.validation.Valid;
 
 import com.pfa.AppRecrutement.model.*;
- import com.pfa.AppRecrutement.security.JwtProvider;
+import com.pfa.AppRecrutement.model.jwtForm.JwtResponse;
+import com.pfa.AppRecrutement.model.jwtForm.LoginForm;
+import com.pfa.AppRecrutement.model.jwtForm.ResponseMessage;
+import com.pfa.AppRecrutement.model.jwtForm.SignUpForm;
+import com.pfa.AppRecrutement.security.JwtProvider;
 import com.pfa.AppRecrutement.dao.RoleRepository;
 import com.pfa.AppRecrutement.dao.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -77,20 +81,22 @@ public class                                                       AuthRestAPIs 
         Set<Role> roles = new HashSet<>();
 
         strRoles.forEach(role -> {
+
             switch (role) {
-                case "admin":
+                case "ROLE_ADMIN":
                     Role adminRole = roleRepository.findByName(RoleName.ROLE_ADMIN)
                             .orElseThrow(() -> new RuntimeException("Fail! -> Cause: User Role not find."));
                     roles.add(adminRole);
 
                     break;
-                case "rh":
+                case "ROLE_RH":
                     Role rhRole = roleRepository.findByName(RoleName.ROLE_RH)
                             .orElseThrow(() -> new RuntimeException("Fail! -> Cause: User Role not find."));
                     roles.add(rhRole);
 
                     break;
-                default:
+                case "ROLE_USER":
+
                     Role userRole = roleRepository.findByName(RoleName.ROLE_USER)
                             .orElseThrow(() -> new RuntimeException("Fail! -> Cause: User Role not find."));
                     roles.add(userRole);
