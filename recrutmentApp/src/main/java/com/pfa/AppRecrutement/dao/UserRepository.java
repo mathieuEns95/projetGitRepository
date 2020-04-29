@@ -1,6 +1,6 @@
 package com.pfa.AppRecrutement.dao;
 
-import com.pfa.AppRecrutement.Util.HibernateUtil;
+
 import com.pfa.AppRecrutement.model.User;
 import org.hibernate.Session;
 import org.hibernate.Transaction;

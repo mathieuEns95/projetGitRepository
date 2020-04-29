@@ -1,6 +1,6 @@
 package com.pfa.AppRecrutement.dao;
 
-import com.pfa.AppRecrutement.Util.HibernateUtil;
+
 import com.pfa.AppRecrutement.controller.UserRestAPI;
 import com.pfa.AppRecrutement.model.Role;
 import com.pfa.AppRecrutement.model.RoleName;
