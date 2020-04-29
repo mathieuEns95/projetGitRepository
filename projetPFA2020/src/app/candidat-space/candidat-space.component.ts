@@ -18,6 +18,7 @@ export class CandidatSpaceComponent implements OnInit {
   private loginInfo: AuthLoginInfo;
   info: any;
   fichierAEnvoyer: File = null;
+  candidateSatut = 'New candidate';
 
   constructor(private token: TokenStorageService , private userservice: UserService) {
 

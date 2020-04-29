@@ -1,242 +1,4 @@
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
-<!-- * * * * * * * to get started with your project! * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
-<style>
-  :host {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    font-size: 14px;
-    color: #333;
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    margin: 8px 0;
-  }
-
-  p {
-    margin: 0;
-  }
-
-  .spacer {
-    flex: 1;
-  }
-
-  .toolbar {
-    height: 60px;
-    margin: -8px;
-    display: flex;
-    align-items: center;
-    background-color: #1976d2;
-    color: white;
-    font-weight: 600;
-    padding: 2% 2%;
-  }
-
-  .toolbar img {
-    margin: 0 20px;
-  }
-
-  .toolbar #twitter-logo {
-    height: 40px;
-    margin: 0 16px;
-  }
-
-  .toolbar #twitter-logo:hover {
-    opacity: 0.8;
-  }
-
-  .content {
-    display: flex;
-    margin: 32px auto;
-    padding: 0 16px;
-    max-width: 900px;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  svg.material-icons {
-    height: 24px;
-    width: auto;
-  }
-
-  svg.material-icons:not(:last-child) {
-    margin-right: 8px;
-  }
-
-  .card svg.material-icons path {
-    fill: #888;
-  }
-
-  .card-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 16px;
-  }
-
-  .card {
-    border-radius: 4px;
-    border: 1px solid #eee;
-    background-color: #fafafa;
-    height: 40px;
-    width: 200px;
-    margin: 0 8px 16px;
-    padding: 16px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    transition: all 0.2s ease-in-out;
-    line-height: 24px;
-  }
-
-  .card-container .card:not(:last-child) {
-    margin-right: 0;
-  }
-
-  .card.card-small {
-    height: 16px;
-    width: 168px;
-  }
-
-  .card-container .card:not(.highlight-card) {
-    cursor: pointer;
-  }
-
-  .card-container .card:not(.highlight-card):hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 17px rgba(0,0,0,0.9);
-  }
-
-  .card-container .card:not(.highlight-card):hover .material-icons path {
-    fill: rgb(105, 103, 103);
-  }
-
-  .card.highlight-card {
-    background-color: #1976d2;
-    color: white;
-    font-weight: 600;
-    border: none;
-    width: auto;
-    min-width: 30%;
-    position: relative;
-  }
-
-  .card.card.highlight-card span {
-    margin-left: 60px;
-  }
-
-  svg#rocket {
-    width: 80px;
-    position: absolute;
-    left: -10px;
-    top: -24px;
-  }
-
-
-  a,
-  a:visited,
-  a:hover {
-    color: #1976d2;
-    text-decoration: none;
-  }
-
-  a:hover {
-    color: #125699;
-  }
-
-  footer {
-    margin-top: 8px;
-    display: flex;
-    align-items: center;
-    line-height: 20px;
-  }
-
-  footer a {
-    display: flex;
-    align-items: center;
-  }
-
-
-  svg#clouds {
-    position: fixed;
-    bottom: -160px;
-    left: -230px;
-    z-index: -10;
-    width: 1920px;
-  }
-
-  .div-rouge{
-    margin-left: -250px;
-  }
-
-  .status-img{
-    margin-left: 900px;
-  }
-  .status{
-    font-size: 16px;
-    margin-left: -10px;
-  }
-
-  /* Responsive Styles */
-  @media screen and (max-width: 767px) {
-
-    .card-container > *:not(.circle-link) ,
-    .terminal {
-      width: 100%;
-    }
-
-    .card:not(.highlight-card) {
-      height: 16px;
-      margin: 8px 0;
-    }
-
-    .card.highlight-card span {
-      margin-left: 72px;
-    }
-
-    svg#rocket-smoke {
-      right: 120px;
-      transform: rotate(-5deg);
-    }
-
-    .status-img{
-      margin-left: 0px;
-    }
-    .status{
-      font-size: 12px;
-      margin-left: -20px;
-    }
-  }
-
-  @media screen and (max-width: 575px) {
-    svg#rocket-smoke {
-      display: none;
-      visibility: hidden;
-    }
-
-    .status-img{
-      margin-left: 0px;
-    }
-    .status{
-      font-size: 12px;
-      margin-left: -20px;
-    }
-  }
-</style>
 
 <!-- Toolbar -->
 <div class="toolbar" role="banner" style="margin-top: -40px">
@@ -252,36 +14,58 @@
     src="../assets/images/status.png"
     class="status-img"
   />
-  <span class="status">cv classification...</span>
+  <span class="status">{{candidateSatut}}</span>
 
   <div class="spacer"></div>
 </div>
 
-<div class="content" role="main">
-  <div *ngIf="isLoggedIn; else loggedOut">
-    Logged in as {{roles}}
-    <button class="btn btn-secondary" (click)="logout()">Logout</button> </div>
+<div class="container-fluid" role="main" >
 
-
-
-  <form>
-
-    <div class="form-group">
-      <label for="exampleFormControlFile1">Envoyer votre cv : </label>
-      <input type="file" id="exampleFormControlFile1" name="file"/>
-      <br><br>
-      <input type="fichier" id="fichier" />
-
-  <input type="submit" value="Envoyer" (click)="envoiFichier()" />
-      <input type="reset" value="Annuler" />
-    </div>
-  </form>
-  <div *ngIf="info.token; else loggedOut">
+  <div class="div-info">
     <p>
-     <!-- <strong>email:</strong> {{info.email}}<br/>-->
-     </p>
-    <button class="btn btn-secondary" [routerLink]="['/login-user']" (click)="logout()">Logout</button>
+      Nom :
+    </p>
+
+    <p>
+      Username :
+    </p>
+
+    <p>
+      E-Mail :
+    </p>
   </div>
+
+  <div class="div-form">
+    <form>
+      <div class="form-group">
+        <label for="exampleFormControlFile1">Envoyer votre cv : </label>
+        <input type="file" id="exampleFormControlFile1" name="file" style="width: 100%"/>
+        <div class="form-group mt-2">
+          <button class="form-group1 btn btn-primary mr-4 ml-1" type="submit" (click)="envoiFichier()">
+            Envoyer
+          </button>
+          <button class="form-group2 btn btn-primary " type="reset">
+            Annuler
+          </button>
+        </div>
+      </div>
+    </form>
+    <div *ngIf="info.token; else loggedOut">
+      <p>
+        <!-- <strong>email:</strong> {{info.email}}<br/>-->
+      </p>
+      <button class="btn btn-danger btn-logout" [routerLink]="['/login-user']" (click)="logout()">
+        <i class="fa fa-sign-out" aria-hidden="true"></i>
+      </button>
+    </div>
+  </div>
+
+  <div class="div-choixRDV">
+    <p>Choix de Rendez-vous pour le teste technique</p>
+    Choix 1 : <a>23-10-2020</a><br>
+    Choix 2 : <a>26-10-2020</a>
+  </div>
+
   <!-- Footer -->
   <footer>
     All rights reserved &copy; 2020
