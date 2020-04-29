@@ -29,9 +29,7 @@ export class UserService {
           }))
 
       },
-      err => {
-        alert('An error has occured while sending email');
-      }
+
     );
   }
 

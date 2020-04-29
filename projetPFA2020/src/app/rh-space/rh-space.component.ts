@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {UserService} from '../services/user.service';
+import {AuthLoginInfo} from '../auth/login-info';
+import {TokenStorageService} from '../auth/token-storage.service';
 
 @Component({
   selector: 'app-rh-space',
@@ -9,9 +11,17 @@ import {UserService} from '../services/user.service';
 export class RhSpaceComponent implements OnInit {
   board: string;
   errorMessage: string;
+  form: any = {};
+  isLoggedIn = false;
+  isLoginFailed = false;
+   roles: string[] = [];
+  private loginInfo: AuthLoginInfo;
+  info: any;
 
-  constructor(private userService: UserService) {
+  constructor(private token: TokenStorageService , private userservice: UserService) {
+
   }
+
   ngOnInit() {
     this.info = {
       token: this.token.getToken(),
@@ -20,16 +30,7 @@ export class RhSpaceComponent implements OnInit {
     };
   }
 
-
-
-  ngOnInit() {
-    this.userService.getRHBoard().subscribe(
-      data => {
-        this.board = data;
-      },
-      error => {
-        this.errorMessage = `${error.status}: ${JSON.parse(error.error).message}`;
-      }
-    );
+  logout() {
+    this.token.signOut();
   }
 }

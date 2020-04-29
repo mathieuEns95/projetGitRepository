@@ -6,8 +6,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
  import { LoginUserComponent } from './login-user/login-user.component';
 import { LoginNewUserComponent } from './login-new-user/login-new-user.component';
-import { LoginNewRhComponent } from './login-new-rh/login-new-rh.component';
-import { CandidatSpaceComponent } from './candidat-space/candidat-space.component';
+ import { CandidatSpaceComponent } from './candidat-space/candidat-space.component';
 import { RhSpaceComponent } from './rh-space/rh-space.component';
 import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
@@ -18,8 +17,7 @@ import {HttpClientModule} from '@angular/common/http';
     HomeComponent,
      LoginUserComponent,
     LoginNewUserComponent,
-    LoginNewRhComponent,
-    CandidatSpaceComponent,
+     CandidatSpaceComponent,
     RhSpaceComponent
   ],
   imports: [

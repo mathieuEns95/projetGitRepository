@@ -4,8 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
  import { LoginUserComponent } from './login-user/login-user.component';
 import { LoginNewUserComponent } from './login-new-user/login-new-user.component';
-import { LoginNewRhComponent } from './login-new-rh/login-new-rh.component';
-import { CandidatSpaceComponent} from './candidat-space/candidat-space.component';
+ import { CandidatSpaceComponent} from './candidat-space/candidat-space.component';
 import { RhSpaceComponent} from './rh-space/rh-space.component';
 import {BrowserModule} from '@angular/platform-browser';
 import {FormsModule} from '@angular/forms';
@@ -14,8 +13,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
    { path: 'login-user', component: LoginUserComponent },
   { path: 'login-new-user', component: LoginNewUserComponent },
-  { path: 'login-new-rh', component: LoginNewRhComponent },
-  { path: 'candidat-space', component : CandidatSpaceComponent},
+   { path: 'candidat-space', component : CandidatSpaceComponent},
   { path: 'rh-space', component: RhSpaceComponent},
   {path: '',
   redirectTo: '/home',
