@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {TokenStorageService} from '../auth/token-storage.service';
 import {AuthLoginInfo} from '../auth/login-info';
 import {UserService} from '../services/user.service';
+import {AuthService} from '../auth/auth.service';
 
 @Component({
   selector: 'app-candidat-space',
@@ -10,6 +11,7 @@ import {UserService} from '../services/user.service';
 })
 export class CandidatSpaceComponent implements OnInit {
   private envoiFichierService: any;
+  private Status = Status;
   form: any = {};
   isLoggedIn = false;
   isLoginFailed = false;
@@ -18,18 +20,23 @@ export class CandidatSpaceComponent implements OnInit {
   private loginInfo: AuthLoginInfo;
   info: any;
   fichierAEnvoyer: File = null;
-  candidateSatut = 'New candidate';
-
-  constructor(private token: TokenStorageService , private userservice: UserService) {
-
+  candidateSatut = Status.NEW;
+  constructor(private token: TokenStorageService , private userservice: UserService,
+              private authService: AuthService) {
   }
 
+  firstname: any;
   ngOnInit() {
     this.info = {
       token: this.token.getToken(),
       username: this.token.getUsername(),
       authorities: this.token.getAuthorities()
     };
+
+    this.authService.fetchUser().subscribe(userDetails => {
+      this.token.saveUser(userDetails);
+    });
+    console.log(this.token.getUser());
   }
 
 
@@ -49,5 +56,10 @@ export class CandidatSpaceComponent implements OnInit {
     });
   }
 
-}
 
+
+}
+enum Status {
+  NEW = 'New Candidat',
+  CV = 'Send CV'
+}

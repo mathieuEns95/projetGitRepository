@@ -40,9 +40,11 @@ export class LoginUserComponent implements OnInit {
     this.authService.attemptAuth(this.loginInfo).subscribe(
       data => {
         this.tokenStorage.saveToken(data.accessToken);
-        this.tokenStorage.saveUsername(data.username);
+        this.tokenStorage.saveUsername(data.email);
         this.tokenStorage.saveAuthorities(data.authorities);
-
+        this.authService.fetchUser().subscribe(userDetails => {
+          this.tokenStorage.saveUser(userDetails);
+        });
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         this.roles = this.tokenStorage.getAuthorities();

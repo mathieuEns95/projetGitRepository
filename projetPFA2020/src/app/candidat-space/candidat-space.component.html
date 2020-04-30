@@ -7,7 +7,7 @@
     alt="Logo FOD"
     src="../assets/images/user.png"
   />
-  <span>Welcome User_name</span>
+  <span>Welcome </span>
   <img
     width="30"
     alt="Logo FOD"
@@ -15,23 +15,21 @@
     class="status-img"
   />
   <span class="status">{{candidateSatut}}</span>
-
-  <div class="spacer"></div>
 </div>
 
 <div class="container-fluid" role="main" >
 
   <div class="div-info">
     <p>
-      Nom :
+      First Name :
     </p>
 
     <p>
-      Username :
+      Last Name :{{token.getUser()}}
     </p>
 
     <p>
-      E-Mail :
+      E-Mail : {{token.getUsername()}}
     </p>
   </div>
 
@@ -60,7 +58,7 @@
     </div>
   </div>
 
-  <div class="div-choixRDV">
+  <div *ngIf="candidateSatut == Status.CV" class="div-choixRDV">
     <p>Choix de Rendez-vous pour le teste technique</p>
     Choix 1 : <a>23-10-2020</a><br>
     Choix 2 : <a>26-10-2020</a>

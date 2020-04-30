@@ -251,10 +251,10 @@ input[type=submit], input[type=reset] {
 }
 
 .btn-logout{
-  position: relative;
+  position: absolute;
   float: right;
-  top: -300px;
-  right: -640px;
+  top: 1%;
+  right: 1%;
 }
 
 .form-group1, .form-group2{

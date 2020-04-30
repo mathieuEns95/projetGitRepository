@@ -81,7 +81,7 @@ public class UserPrinciple implements UserDetails {
 
     @Override
     public String getUsername() {
-        return null;
+        return email;
     }
 
      public String getEmail() {
