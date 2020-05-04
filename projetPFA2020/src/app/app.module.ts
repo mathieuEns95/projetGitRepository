@@ -10,6 +10,8 @@ import { LoginNewUserComponent } from './login-new-user/login-new-user.component
 import { RhSpaceComponent } from './rh-space/rh-space.component';
 import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import { LoginRhComponent } from './login-rh/login-rh.component';
+import { LoginNewRhComponent } from './login-new-rh/login-new-rh.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import {HttpClientModule} from '@angular/common/http';
      LoginUserComponent,
     LoginNewUserComponent,
      CandidatSpaceComponent,
-    RhSpaceComponent
+    RhSpaceComponent,
+    LoginRhComponent,
+    LoginNewRhComponent
   ],
   imports: [
     BrowserModule,
