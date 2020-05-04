@@ -12,4 +12,7 @@ export class LoginNewRhComponent implements OnInit {
   ngOnInit() {
   }
 
+  onSaveRH(value: any) {
+
+  }
 }
