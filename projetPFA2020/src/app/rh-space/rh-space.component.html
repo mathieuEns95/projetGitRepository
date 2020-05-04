@@ -1,11 +1,3 @@
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
-<!-- * * * * * * * to get started with your project! * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
 <style>
   :host {
@@ -229,63 +221,41 @@
     Logged in as {{roles}}
     <button class="btn btn-secondary" (click)="logout()">Logout</button> </div>
 
+  <div class="container">
+
+    <div class="panel-primary">
+      <div class="panel-heading"> Liste des candidats </div>
+      <div class="panel-body">
+        <button type="submit" class="btn btn-primary" (click)="afficherCandidates()">
+          <span class="glyphicon glyphicon-search"> </span>
+          Show
+        </button>
+        <table *ngIf="candidates" id="candidates" class="table table-striped">
+          <tr>
+
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>email</th>
+            <th>Status</th>
+            <th>Send email</th>
+          </tr>
+          <tr *ngFor="let c of candidates">
+
+            <td> {{c.first_name}}</td>
+            <td> {{c.last_name}}</td>
+            <td> {{c.email}}</td>
+            <td> {{c.status}}</td>
+            <td><button type="submit" class="btn btn-success" (click)="onSendEmail(c)">
+              Send email
+            </button></td>
+          </tr>
+        </table>
 
 
-  <table id="customers">
-    <tr>
-      <th>NOM</th>
-      <th>PRENOM</th>
-      <th>CV</th>
-      <th>STATUT</th>
-    </tr>
-    <tr>
-      <td>manel</td>
-      <td>benrached</td>
-      <td>aa.pdf</td>
-      <td style="color: orange">cv classification</td>
-    </tr>
-    <tr>
-      <td>Madhi</td>
-      <td>Amine</td>
-      <td>aa.pdf</td>
-      <td style="color: orange">cv classification</td>
-    </tr>
-    <tr>
-      <td>Mathieu</td>
-      <td>Festel</td>
-      <td>cc.pdf</td>
-      <td style="color: darkblue">test technique</td>
-    </tr>
+      </div>
+    </div>
 
-
-    <tr>
-      <td>Yassine</td>
-      <td>Hammemi</td>
-      <td>aa.pdf</td>
-      <td style="color: orangered">dinied</td>
-    </tr>
-    <tr>
-      <td>Cedric</td>
-      <td>Monfo</td>
-      <td>aa.pdf</td>
-      <td style="color: darkgreen">admited</td>
-    </tr>
-    <tr>
-      <td>Amiri</td>
-      <td>Lobna</td>
-      <td>aa.pdf</td>
-      <td style="color: darkgreen">admited</td>
-    </tr>
-    <tr>
-      <td>Konlak</td>
-      <td>Audrey</td>
-      <td>aa.pdf</td>
-      <td style="color: darkgreen">admited</td>
-    </tr>
-
-
-  </table>
-
+  </div>
 
   <div *ngIf="info.token; else loggedOut">
     <p>
@@ -304,10 +274,3 @@
 
 </div>
 
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
