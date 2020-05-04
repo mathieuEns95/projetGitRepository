@@ -51,4 +51,19 @@ export class UserService {
     return this.http.get(this.userUrl,
       {responseType: 'text'});
   }
+
+  public getResource(url) {
+    return this.http.get(url);
+  }
+
+  public saveResource(url, data) {
+    return this.http.post(url, data);
+  }
+  public updateResource(url, data) {
+    return this.http.put(url, data);
+  }
+
+  public deleteResource(url) {
+    return this.http.delete(url);
+  }
 }
