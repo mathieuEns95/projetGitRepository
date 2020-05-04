@@ -12,4 +12,7 @@ export class LoginRhComponent implements OnInit {
   ngOnInit() {
   }
 
+  onSubmit() {
+
+  }
 }
