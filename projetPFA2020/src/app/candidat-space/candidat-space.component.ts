@@ -3,6 +3,7 @@ import {TokenStorageService} from '../auth/token-storage.service';
 import {AuthLoginInfo} from '../auth/login-info';
 import {UserService} from '../services/user.service';
 import {AuthService} from '../auth/auth.service';
+import {HttpEventType, HttpResponse} from '@angular/common/http';
 
 @Component({
   selector: 'app-candidat-space',
@@ -13,6 +14,7 @@ export class CandidatSpaceComponent implements OnInit {
   private envoiFichierService: any;
   private Status = Status;
   form: any = {};
+  file: File;
   isLoggedIn = false;
   isLoginFailed = false;
   errorMessage = '';
@@ -21,6 +23,14 @@ export class CandidatSpaceComponent implements OnInit {
   info: any;
   fichierAEnvoyer: File = null;
   candidateSatut = Status.NEW;
+
+  title = 'File-Upload-Save';
+  selectedFiles: FileList;
+  currentFileUpload: File;
+  progress: { percentage: number } = { percentage: 0 };
+  selectedFile = null;
+  changeImage = false;
+
   constructor(private token: TokenStorageService , private userservice: UserService,
               private authService: AuthService) {
   }
@@ -47,6 +57,7 @@ export class CandidatSpaceComponent implements OnInit {
 
   envoiFichier(formData) {
      this.userservice.sendMailCSV(formData);
+     this.userservice.pushFileToStorage(this.file);
   }
 
   envoiFichierParLeService() {
@@ -54,6 +65,22 @@ export class CandidatSpaceComponent implements OnInit {
     }, erreur => {
       console.log('Erreur lors de l\'envoi du fichier : ', erreur);
     });
+  }
+ /** upload() {
+    this.progress.percentage = 0;
+    this.currentFileUpload = this.selectedFiles.item(0);
+    this.userservice.pushFileToStorage(this.currentFileUpload).subscribe(event => {
+        if (event.type === HttpEventType.UploadProgress) {
+          this.progress.percentage = Math.round(100 * event.loaded / event.total);
+        } else if (event instanceof HttpResponse) {
+          alert('File Successfully Uploaded');
+        }
+        this.selectedFiles = undefined;
+      }
+    );
+  }**/
+  selectFile(event) {
+    this.selectedFiles = event.target.files;
   }
 
 

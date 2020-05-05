@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClient, HttpEvent, HttpEventType, HttpHeaders, HttpRequest, HttpResponse} from '@angular/common/http';
 import {Observable, pipe} from 'rxjs';
 import {observableToBeFn} from 'rxjs/internal/testing/TestScheduler';
 import {hostReportError} from 'rxjs/internal-compatibility';
@@ -32,6 +32,17 @@ export class UserService {
 
     );
   }
+
+  pushFileToStorage(file: File): Observable<HttpEvent<{}>> {
+    const data: FormData = new FormData();
+    data.append('file', file);
+    const newRequest = new HttpRequest('POST', 'http://localhost:8080/test/saveCv',
+      data, {
+      reportProgress: true,
+      responseType: 'text'
+        });
+          return this.http.request(newRequest);
+      }
 
   getUserBoard(): Observable<string> {
     return this.http.get(this.userUrl,

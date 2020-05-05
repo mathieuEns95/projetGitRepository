@@ -28,7 +28,7 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping("/api/auth")
-public class                                                       AuthRestAPIs {
+public class AuthRestAPIs {
 
     @Autowired
     AuthenticationManager authenticationManager;
@@ -71,7 +71,7 @@ public class                                                       AuthRestAPIs 
 
         // Creating user's account
         User user = new User(signUpRequest.getFirst_name(), signUpRequest.getLast_name(), signUpRequest.getEmail(),
-                encoder.encode(signUpRequest.getPassword()));
+                encoder.encode(signUpRequest.getPassword()) );
 
         Set<String> strRoles = signUpRequest.getRole();
         Set<Role> roles = new HashSet<>();

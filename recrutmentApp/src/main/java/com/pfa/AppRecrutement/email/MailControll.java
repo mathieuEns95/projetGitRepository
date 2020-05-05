@@ -36,7 +36,7 @@ public class MailControll {
 
         helper.setText("Hello, Im testing email with attachments!");
 
-        String path1 = "E:/cv.txt";
+        String path1 = "E:/manel.pdf";
         FileSystemResource file1 = new FileSystemResource(new File(path1));
         helper.addAttachment("PDF file", file1);
 

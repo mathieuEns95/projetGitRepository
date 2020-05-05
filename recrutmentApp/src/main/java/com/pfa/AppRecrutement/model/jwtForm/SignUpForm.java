@@ -1,5 +1,6 @@
 package com.pfa.AppRecrutement.model.jwtForm;
 
+import java.io.File;
 import java.util.Set;
 
 import javax.validation.constraints.*;
@@ -63,4 +64,5 @@ public class SignUpForm {
     public void setRole(Set<String> role) {
         this.role = role;
     }
+
 }
