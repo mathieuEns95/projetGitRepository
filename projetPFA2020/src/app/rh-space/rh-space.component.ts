@@ -17,7 +17,8 @@ export class RhSpaceComponent implements OnInit {
    roles: string[] = [];
   private loginInfo: AuthLoginInfo;
   info: any;
-
+  candidates :any;
+  loggedOut: any;
   constructor(private token: TokenStorageService , private userservice: UserService) {
 
   }
@@ -32,5 +33,19 @@ export class RhSpaceComponent implements OnInit {
 
   logout() {
     this.token.signOut();
+  }
+
+  afficherCandidates() { this.userservice.getResource("http://localhost:8080/listUsers")
+    .subscribe(data => {
+      this.candidates = data;
+
+    }, error => {
+      console.log(error);
+    });
+
+  }
+
+  onSendEmail(c: any) {
+
   }
 }

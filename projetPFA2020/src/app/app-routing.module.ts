@@ -8,11 +8,15 @@ import { LoginNewUserComponent } from './login-new-user/login-new-user.component
 import { RhSpaceComponent} from './rh-space/rh-space.component';
 import {BrowserModule} from '@angular/platform-browser';
 import {FormsModule} from '@angular/forms';
+import {LoginRhComponent} from "./login-rh/login-rh.component";
+import {LoginNewRhComponent} from "./login-new-rh/login-new-rh.component";
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
    { path: 'login-user', component: LoginUserComponent },
+  { path: 'login-rh', component:  LoginRhComponent },
   { path: 'login-new-user', component: LoginNewUserComponent },
+  { path: 'login-new-rh', component: LoginNewRhComponent },
    { path: 'candidat-space', component : CandidatSpaceComponent},
   { path: 'rh-space', component: RhSpaceComponent},
   {path: '',
