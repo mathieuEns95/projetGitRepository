@@ -1,6 +1,7 @@
 package com.pfa.AppRecrutement.email;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
@@ -15,6 +16,7 @@ import java.io.File;
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
 public class MailControll {
+
 
     @Autowired
     public JavaMailSender emailSender;
@@ -31,12 +33,12 @@ public class MailControll {
 
         MimeMessageHelper helper = new MimeMessageHelper(message, multipart);
 
-        helper.setTo("manelbenrached11@gmail.com");
+        helper.setTo("mathieu.ntono2@gmail.com");
         helper.setSubject("Test email with attachments");
 
         helper.setText("Hello, Im testing email with attachments!");
 
-        String path1 = "E:/manel.pdf";
+        String path1 = "E:\\cv.pdf";
         FileSystemResource file1 = new FileSystemResource(new File(path1));
         helper.addAttachment("PDF file", file1);
 

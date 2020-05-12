@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {UserService} from '../services/user.service';
 import {AuthLoginInfo} from '../auth/login-info';
 import {TokenStorageService} from '../auth/token-storage.service';
+import {HttpClient} from '@angular/common/http';
+import {Route} from '@angular/router';
 
 @Component({
   selector: 'app-rh-space',
@@ -17,10 +19,10 @@ export class RhSpaceComponent implements OnInit {
    roles: string[] = [];
   private loginInfo: AuthLoginInfo;
   info: any;
-  candidates :any;
+  candidates: any;
   loggedOut: any;
-  constructor(private token: TokenStorageService , private userservice: UserService) {
-
+  constructor(private token: TokenStorageService , private userservice: UserService,
+              private httpClient: HttpClient) {
   }
 
   ngOnInit() {
@@ -35,7 +37,7 @@ export class RhSpaceComponent implements OnInit {
     this.token.signOut();
   }
 
-  afficherCandidates() { this.userservice.getResource("http://localhost:8080/listUsers")
+  afficherCandidates() { this.userservice.getResource('http://localhost:8080/listUsers')
     .subscribe(data => {
       this.candidates = data;
 
@@ -47,5 +49,10 @@ export class RhSpaceComponent implements OnInit {
 
   onSendEmail(c: any) {
 
+  }
+
+  goToClassification() {
+    window.location.href = 'http://localhost:8090';
+    console.log('gone to 8090');
   }
 }
