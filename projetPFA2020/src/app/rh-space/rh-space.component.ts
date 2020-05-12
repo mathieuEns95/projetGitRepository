@@ -53,6 +53,5 @@ export class RhSpaceComponent implements OnInit {
 
   goToClassification() {
     window.location.href = 'http://localhost:8090';
-    console.log('gone to 8090');
   }
 }
