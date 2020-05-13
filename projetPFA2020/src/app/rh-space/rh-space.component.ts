@@ -31,6 +31,7 @@ export class RhSpaceComponent implements OnInit {
       username: this.token.getUsername(),
       authorities: this.token.getAuthorities()
     };
+    this.afficherCandidates();
   }
 
   logout() {
