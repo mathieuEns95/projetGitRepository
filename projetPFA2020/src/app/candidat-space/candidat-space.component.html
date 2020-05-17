@@ -21,31 +21,35 @@
 
   <div class="div-info">
     <p>
-      First Name :
+      First Name : {{object.first_name}}
     </p>
 
     <p>
-      Last Name :{{token.getUser()}}
+      Last Name : {{object.last_name}}
     </p>
 
     <p>
-      E-Mail : {{token.getUsername()}}
+      E-Mail : {{object.email}}
     </p>
   </div>
 
   <div class="div-form">
     <form>
       <div class="form-group">
+        <form [formGroup] = "formGroup" (ngSubmit)="envoiFichier()">
         <label for="exampleFormControlFile1">Envoyer votre cv : </label>
-        <input type="file" id="exampleFormControlFile1" name="file" style="width: 100%"/>
+        <input type="file" (change)="onFileChange($event)" />
         <div class="form-group mt-2">
-          <button class="form-group1 btn btn-primary mr-4 ml-1" type="submit" (click)="envoiFichier()">
-            Envoyer
+          <button class={{classe}}  type="submit" >
+            {{text}}
           </button>
           <button class="form-group2 btn btn-primary " type="reset">
             Annuler
           </button>
-        </div>
+
+
+      </div>
+        </form>
       </div>
     </form>
     <div *ngIf="info.token; else loggedOut">
@@ -66,7 +70,9 @@
 
   <!-- Footer -->
   <footer>
+    <div class="foo">
     All rights reserved &copy; 2020
+    </div>
   </footer>
 
   <svg id="clouds" alt="Gray Clouds Background" xmlns="http://www.w3.org/2000/svg" width="2611.084" height="485.677" viewBox="0 0 2611.084 485.677">

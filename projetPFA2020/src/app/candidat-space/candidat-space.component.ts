@@ -4,6 +4,8 @@ import {AuthLoginInfo} from '../auth/login-info';
 import {UserService} from '../services/user.service';
 import {AuthService} from '../auth/auth.service';
 import {HttpEventType, HttpResponse} from '@angular/common/http';
+import {FormBuilder, Validators} from '@angular/forms';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-candidat-space',
@@ -23,20 +25,34 @@ export class CandidatSpaceComponent implements OnInit {
   info: any;
   fichierAEnvoyer: File = null;
   candidateSatut = Status.NEW;
-
+  private readonly IsSaved = 'Yes';
   title = 'File-Upload-Save';
   selectedFiles: FileList;
   currentFileUpload: File;
   progress: { percentage: number } = { percentage: 0 };
   selectedFile = null;
   changeImage = false;
+  object = {};
+  private fileName;
 
+  text = 'Envoyer';
+   classe = 'form-group1 btn btn-primary mr-4 ml-1';
   constructor(private token: TokenStorageService , private userservice: UserService,
-              private authService: AuthService) {
+              private authService: AuthService,
+              private fb: FormBuilder,
+              private toastr: ToastrService
+              ) {
   }
-
+  public formGroup = this.fb.group({
+    file: [null, ]
+  });
   firstname: any;
   ngOnInit() {
+    if ( localStorage.getItem(this.IsSaved) == 'yes') {
+      this.text = 'Modifier';
+      this.classe = 'form-group1 btn btn-warning mr-4 ml-1';
+      this.candidateSatut = Status.CV;
+    }
     this.info = {
       token: this.token.getToken(),
       username: this.token.getUsername(),
@@ -44,24 +60,63 @@ export class CandidatSpaceComponent implements OnInit {
     };
 
     this.authService.fetchUser().subscribe(userDetails => {
+      this.object = userDetails;
       this.token.saveUser(userDetails);
     });
-    console.log(this.token.getUser());
   }
 
 
   logout() {
     this.token.signOut();
+    localStorage.removeItem(this.IsSaved);
    }
+  public onFileChange(event) {
+    const reader = new FileReader();
 
+    if (event.target.files && event.target.files.length) {
+      this.fileName = event.target.files[0].name;
+      const [file] = event.target.files;
+      reader.readAsDataURL(file);
 
-  envoiFichier(formData) {
-     this.userservice.sendMailCSV(formData);
-     this.userservice.pushFileToStorage(this.file);
+      reader.onload = () => {
+        this.formGroup.patchValue({
+          file: reader.result
+        });
+      };
+    } else { (File == null) }
   }
+
+  envoiFichier() {
+      const filetest = this.formGroup.get('file').value;
+      console.warn(filetest);
+      if ( filetest != null) {
+      this.userservice.sendMailCSV(event);
+      this.userservice.pushFileToStorage(this.file);
+      this.text = 'Modifier';
+      this.classe = 'form-group1 btn btn-warning mr-4 ml-1';
+      localStorage.setItem(this.IsSaved, 'yes');
+      this.candidateSatut = Status.CV;
+      this.toastr.success('thank you', 'candidature create successfully');
+
+    }
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+
 
   envoiFichierParLeService() {
     this.envoiFichierService.postFile(this.fichierAEnvoyer).subscribe(resultat => {
+
     }, erreur => {
       console.log('Erreur lors de l\'envoi du fichier : ', erreur);
     });

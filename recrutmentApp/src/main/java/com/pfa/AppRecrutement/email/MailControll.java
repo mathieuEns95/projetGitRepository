@@ -33,12 +33,12 @@ public class MailControll {
 
         MimeMessageHelper helper = new MimeMessageHelper(message, multipart);
 
-        helper.setTo("mathieu.ntono2@gmail.com");
+        helper.setTo("manelbenrached11@gmail.com");
         helper.setSubject("Test email with attachments");
 
         helper.setText("Hello, Im testing email with attachments!");
 
-        String path1 = "E:\\cv.pdf";
+        String path1 = "E:\\Manel.pdf";
         FileSystemResource file1 = new FileSystemResource(new File(path1));
         helper.addAttachment("PDF file", file1);
 

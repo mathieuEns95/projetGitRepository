@@ -12,6 +12,9 @@ import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { LoginRhComponent } from './login-rh/login-rh.component';
 import { LoginNewRhComponent } from './login-new-rh/login-new-rh.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,11 @@ import { LoginNewRhComponent } from './login-new-rh/login-new-rh.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
+    ReactiveFormsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

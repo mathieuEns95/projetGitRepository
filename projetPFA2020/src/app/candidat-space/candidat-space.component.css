@@ -9,6 +9,9 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.foo {
+  text-align: center;
+}
 
 h1,
 h2,

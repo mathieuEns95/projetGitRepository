@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { TokenStorageService } from '../auth/token-storage.service';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-home',
@@ -12,14 +13,15 @@ export class HomeComponent implements OnInit {
 
   constructor(private token: TokenStorageService) { }
 
+
   ngOnInit() {
+
     this.info = {
       token: this.token.getToken(),
       username: this.token.getUsername(),
       authorities: this.token.getAuthorities()
     };
   }
-
   logout() {
     this.token.signOut();
     window.location.reload();

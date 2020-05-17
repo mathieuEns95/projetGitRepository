@@ -5,6 +5,7 @@ import {observableToBeFn} from 'rxjs/internal/testing/TestScheduler';
 import {hostReportError} from 'rxjs/internal-compatibility';
 import {tap} from 'rxjs/operators';
 import {Router} from '@angular/router';
+import {ToastrService} from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ export class UserService {
   private rhUrl = 'http://localhost:8080/api/test/rh';
   private adminUrl = 'http://localhost:8080/api/test/admin';
   private  baseUrl = 'http://localhost:8080/';
-  constructor(private http: HttpClient , private router: Router) { }
+  constructor(private http: HttpClient , private router: Router, private toastr: ToastrService) { }
 
   sendMailCSV(formData) {
     this.http.post<any>(this.baseUrl + 'sendMailAttach', formData).subscribe(
