@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {TokenStorageService} from '../auth/token-storage.service';
 import {AuthLoginInfo} from '../auth/login-info';
 import {UserService} from '../services/user.service';
@@ -13,6 +13,12 @@ import {ToastrService} from 'ngx-toastr';
   styleUrls: ['./candidat-space.component.css']
 })
 export class CandidatSpaceComponent implements OnInit {
+  constructor(private token: TokenStorageService , private userservice: UserService,
+              private authService: AuthService,
+              private fb: FormBuilder,
+              private toastr: ToastrService
+              ) {
+  }
   private envoiFichierService: any;
   private Status = Status;
   form: any = {};
@@ -34,19 +40,38 @@ export class CandidatSpaceComponent implements OnInit {
   changeImage = false;
   object = {};
   private fileName;
+  @Input() init = 10;
+  public counter = 0;
 
   text = 'Envoyer';
    classe = 'form-group1 btn btn-primary mr-4 ml-1';
-  constructor(private token: TokenStorageService , private userservice: UserService,
-              private authService: AuthService,
-              private fb: FormBuilder,
-              private toastr: ToastrService
-              ) {
-  }
   public formGroup = this.fb.group({
     file: [null, ]
   });
   firstname: any;
+
+  startCoundDown() {
+    if (this.init && this.init > 0) {
+      this.counter = this.init;
+      this.doCountown();
+    }
+  }
+  private doCountown() {
+    setTimeout(() => {
+      this.counter = this.counter - 1;
+      this.procesCountDown();
+    }, 1000);
+  }
+
+  private procesCountDown() {
+    this.counter = this.counter;
+    if (this.counter == 0) {
+      this.candidateSatut = this.Status.CV;
+    } else {
+      this.candidateSatut = this.Status.NEW;
+      this.doCountown();
+    }
+  }
   ngOnInit() {
     if ( localStorage.getItem(this.IsSaved) == 'yes') {
       this.text = 'Modifier';
@@ -63,6 +88,9 @@ export class CandidatSpaceComponent implements OnInit {
       this.object = userDetails;
       this.token.saveUser(userDetails);
     });
+
+
+    this.startCoundDown();
   }
 
 
@@ -83,7 +111,7 @@ export class CandidatSpaceComponent implements OnInit {
           file: reader.result
         });
       };
-    } else { (File == null) }
+    } else { ( File == null ); }
   }
 
   envoiFichier() {
@@ -121,23 +149,9 @@ export class CandidatSpaceComponent implements OnInit {
       console.log('Erreur lors de l\'envoi du fichier : ', erreur);
     });
   }
- /** upload() {
-    this.progress.percentage = 0;
-    this.currentFileUpload = this.selectedFiles.item(0);
-    this.userservice.pushFileToStorage(this.currentFileUpload).subscribe(event => {
-        if (event.type === HttpEventType.UploadProgress) {
-          this.progress.percentage = Math.round(100 * event.loaded / event.total);
-        } else if (event instanceof HttpResponse) {
-          alert('File Successfully Uploaded');
-        }
-        this.selectedFiles = undefined;
-      }
-    );
-  }**/
   selectFile(event) {
     this.selectedFiles = event.target.files;
   }
-
 
 
 }
