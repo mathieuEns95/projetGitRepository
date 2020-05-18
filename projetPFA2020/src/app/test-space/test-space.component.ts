@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Toast} from 'ngx-toastr';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-test-space',
@@ -8,12 +8,13 @@ import {Toast} from 'ngx-toastr';
 })
 export class TestSpaceComponent implements OnInit {
 
-  constructor() { }
+  constructor( private toastr: ToastrService) { }
 
-  @Input() init = 40;
+  @Input() init = 20;
   public counter = 0;
-  sec = this.counter;
-  color2 = 'red';
+  color = 'green';
+  questionBoxHiden = true;
+  scoreBoxHiden = true;
 
   ngOnInit() {
   }
@@ -22,6 +23,7 @@ export class TestSpaceComponent implements OnInit {
     if (this.init && this.init > 0) {
       this.counter = this.init;
       this.doCountown();
+      this.questionBoxHiden = false;
     }
   }
   private doCountown() {
@@ -33,10 +35,18 @@ export class TestSpaceComponent implements OnInit {
 
   private procesCountDown() {
     this.counter = this.counter;
+
     if (this.counter == 0) {
-      // rien pour l'instant
+      this.toastr.show('Votre temps est écoulé', 'TIME OUT');
+      this.questionBoxHiden = true;
+      this.scoreBoxHiden = false;
     } else {
-      this.doCountown();
+      if (this.counter < 10) {
+        this.color = 'red';
+        this.doCountown();
+      } else {
+        this.doCountown();
+      }
     }
   }
 }

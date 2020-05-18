@@ -1,15 +1,15 @@
 <div class="toolbar" role="banner" style="  margin-top: -40px">
-  <p>FOD TECHNICAL TEST PLAT-FORME</p>
+  <p>FOD TECHNICAL TEST PLATE-FORME</p>
 </div>
 
 <div class="toolbar-2" role="banner" style="  margin-top: 10px">
   <button class="btn btn-success" (click)="startCoundDown()">Start test</button>
-  <p style="[color]:{{color2}}">Time : {{counter}} Secondes</p>
+  <p [style.color]="color" >Time : {{counter}} Secondes</p>
 </div>
 
 <hr style="background: #1976d2; width: 90%">
 
-<div class="container-fluid">
+<div [hidden]=questionBoxHiden class="container-fluid">
   <nav>
     <div class="nav nav-tabs" id="nav-tab" role="tablist">
       <a class="nav-item nav-link active"
@@ -226,27 +226,27 @@
          id="q1"
          role="tabpanel"
          aria-labelledby="q1">
-        <div class="choix" style="padding: 50px; border:1px solid #eeeeee;
+      <div class="choix" style="padding: 50px; border:1px solid #eeeeee;
           border-bottom-left-radius: 15px;
           border-bottom-right-radius: 15px;">
-          <p>En quel année a t-on sortis le language JAVA ? :</p>
-          <div class="custom-control custom-radio">
-            <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-            <label class="custom-control-label" for="customRadio1">1995</label>
-          </div>
-          <div class="custom-control custom-radio">
-            <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-            <label class="custom-control-label" for="customRadio2">2000</label>
-          </div>
-          <div class="custom-control custom-radio">
-            <input type="radio" id="customRadio3" name="customRadio" class="custom-control-input">
-            <label class="custom-control-label" for="customRadio3">1860</label>
-          </div>
-          <div class="custom-control custom-radio">
-            <input type="radio" id="customRadio4" name="customRadio" class="custom-control-input">
-            <label class="custom-control-label" for="customRadio4">1960</label>
-          </div>
+        <p>En quel année a t-on sortis le language JAVA ? :</p>
+        <div class="custom-control custom-radio">
+          <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
+          <label class="custom-control-label" for="customRadio1">1995</label>
         </div>
+        <div class="custom-control custom-radio">
+          <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
+          <label class="custom-control-label" for="customRadio2">2000</label>
+        </div>
+        <div class="custom-control custom-radio">
+          <input type="radio" id="customRadio3" name="customRadio" class="custom-control-input">
+          <label class="custom-control-label" for="customRadio3">1860</label>
+        </div>
+        <div class="custom-control custom-radio">
+          <input type="radio" id="customRadio4" name="customRadio" class="custom-control-input">
+          <label class="custom-control-label" for="customRadio4">1960</label>
+        </div>
+      </div>
     </div>
     <div class="tab-pane fade"
          id="q2"
@@ -497,4 +497,7 @@
       tab 22
     </div>
   </div>
+</div>
+<div [hidden]=scoreBoxHiden class="container-fluid box-score">
+  VOTRE SCORE EST DE : 20
 </div>
