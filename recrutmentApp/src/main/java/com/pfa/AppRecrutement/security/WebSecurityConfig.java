@@ -62,6 +62,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/sendMailUser/**").permitAll()
                 .antMatchers("/sendMailAttach/**").permitAll()
                 .antMatchers("/upload/**").permitAll()
+                .antMatchers("/listUsers/**").permitAll()
 
                 .anyRequest().authenticated()
                 .and()
