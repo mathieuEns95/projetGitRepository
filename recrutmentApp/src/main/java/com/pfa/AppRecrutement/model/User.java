@@ -44,6 +44,10 @@ public class User {
     @Size(min=6, max = 100)
     private String password;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "CV_id", referencedColumnName = "id")
+    private DBFile dbFile;
+
 
 
     @ManyToMany(fetch = FetchType.LAZY)
@@ -64,6 +68,14 @@ public class User {
         this.last_name = last_name;
         this.email = email;
         this.password = password;
+    }
+
+    public DBFile getDbFile() {
+        return dbFile;
+    }
+
+    public void setDbFile(DBFile dbFile) {
+        this.dbFile = dbFile;
     }
 
     public Long getId() {

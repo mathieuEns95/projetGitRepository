@@ -25,24 +25,24 @@ export class UserService {
         pipe(
           tap(data => {
 
-            console.log(`sendEmail returned: ${JSON.stringify(data)}`
-            )
-          }))
+            console.log(`sendEmail returned: ${JSON.stringify(data)}`);
+          }));
 
       },
 
     );
+    return true;
   }
 
   pushFileToStorage(file: File): Observable<HttpEvent<{}>> {
     const data: FormData = new FormData();
     data.append('file', file);
-    const newRequest = new HttpRequest('POST', 'http://localhost:8080/test/saveCv',
+    const newRequest = new HttpRequest('POST', 'http://localhost:8080/uploadFile',
       data, {
       reportProgress: true,
       responseType: 'text'
         });
-          return this.http.request(newRequest);
+    return this.http.request(newRequest);
       }
 
   getUserBoard(): Observable<string> {

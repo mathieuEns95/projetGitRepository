@@ -1,5 +1,6 @@
 package com.pfa.AppRecrutement.email;
 
+import com.pfa.AppRecrutement.model.DBFile;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.core.io.FileSystemResource;
@@ -12,15 +13,17 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
+import javax.xml.xpath.XPath;
 import java.io.File;
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
 public class MailControll {
 
 
+    @Qualifier("getJavaMailSender")
     @Autowired
     public JavaMailSender emailSender;
-
+    private DBFile file;
     @ResponseBody
     @CrossOrigin(origins = "http://localhost:4200")
 
@@ -38,9 +41,10 @@ public class MailControll {
 
         helper.setText("Hello, Im testing email with attachments!");
 
-        String path1 = "E:\\Manel.pdf";
-        FileSystemResource file1 = new FileSystemResource(new File(path1));
-        helper.addAttachment("PDF file", file1);
+//        String path = "E:\\Manel.pdf";
+  //      FileSystemResource file1 = new FileSystemResource(new File(path));
+     //   attachmentBodyPart.attachFile(new File("path/to/file"));
+        helper.addAttachment(file.getFileName(),new File("path/to/file"));
 
 
         emailSender.send(message);

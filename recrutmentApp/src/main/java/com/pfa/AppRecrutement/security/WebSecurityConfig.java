@@ -3,6 +3,7 @@ package com.pfa.AppRecrutement.security;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -61,7 +62,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/h2-console/**").permitAll()
                 .antMatchers("/sendMailUser/**").permitAll()
                 .antMatchers("/sendMailAttach/**").permitAll()
-                .antMatchers("/upload/**").permitAll()
+                .antMatchers("/uploadFile/**").permitAll()
+                 .antMatchers (HttpMethod.GET, "/downloadFile/**").permitAll()
+                .antMatchers("/listUsers/**").permitAll()
 
                 .anyRequest().authenticated()
                 .and()
