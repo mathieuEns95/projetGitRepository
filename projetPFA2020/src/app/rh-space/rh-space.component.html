@@ -43,7 +43,7 @@
             <td>  {{c.last_name}}.{{c.first_name}}</td>
             <td> {{c.email}}</td>
             <td>path cv</td>
-            <td> {{c.status}}</td>
+            <td> CV Classification </td>
             <td>
               <button type="submit" class="btn btn-success" (click)="onSendEmail(c)">
                 Send email
@@ -53,7 +53,7 @@
         </table>
 
 
-        <button (click)="goToClassification()">
+        <button class="btn btn-success" (click)="goToClassification()">
           classification interface
         </button>
 
