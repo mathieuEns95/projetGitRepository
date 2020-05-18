@@ -294,6 +294,12 @@ input[type=submit], input[type=reset] {
   color: cadetblue;
 }
 
+.bnt-testSpace{
+  position: absolute;
+  top : 168px;
+  right: 280px;
+}
+
 footer{
   position: absolute;
   bottom: 2px;
