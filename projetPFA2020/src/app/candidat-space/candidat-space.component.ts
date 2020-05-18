@@ -49,6 +49,8 @@ export class CandidatSpaceComponent implements OnInit {
     file: [null, ]
   });
   firstname: any;
+  show = true;
+  meHide: boolean;
 
   startCoundDown() {
     if (this.init && this.init > 0) {
@@ -66,7 +68,8 @@ export class CandidatSpaceComponent implements OnInit {
   private procesCountDown() {
     this.counter = this.counter;
     if (this.counter == 0) {
-      this.candidateSatut = this.Status.CV;
+      this.toastr.success('thank you', 'candidature create successfully');
+      this.candidateSatut = Status.CV;
     } else {
       this.candidateSatut = this.Status.NEW;
       this.doCountown();
@@ -89,8 +92,6 @@ export class CandidatSpaceComponent implements OnInit {
       this.token.saveUser(userDetails);
     });
 
-
-    this.startCoundDown();
   }
 
 
@@ -123,24 +124,10 @@ export class CandidatSpaceComponent implements OnInit {
       this.text = 'Modifier';
       this.classe = 'form-group1 btn btn-warning mr-4 ml-1';
       localStorage.setItem(this.IsSaved, 'yes');
-      this.candidateSatut = Status.CV;
-      this.toastr.success('thank you', 'candidature create successfully');
-
+      this.startCoundDown();
     }
 
   }
-
-
-
-
-
-
-
-
-
-
-
-
 
   envoiFichierParLeService() {
     this.envoiFichierService.postFile(this.fichierAEnvoyer).subscribe(resultat => {
@@ -154,8 +141,13 @@ export class CandidatSpaceComponent implements OnInit {
   }
 
 
+  startTest() {
+    this.show = false;
+    this.meHide = true;
+  }
 }
 enum Status {
   NEW = 'New Candidat',
-  CV = 'Send CV'
+  CV = 'CV Sent',
+  CLASS = 'CV Classification'
 }
