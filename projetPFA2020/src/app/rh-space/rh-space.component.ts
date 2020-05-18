@@ -41,7 +41,6 @@ export class RhSpaceComponent implements OnInit {
   afficherCandidates() { this.userservice.getResource('http://localhost:8080/listUsers')
     .subscribe(data => {
       this.candidates = data;
-
     }, error => {
       console.log(error);
     });
