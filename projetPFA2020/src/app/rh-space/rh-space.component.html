@@ -5,14 +5,15 @@
     alt="Logo FOD"
     src="../assets/images/user.png"
   />
-  <span>Welcome Admin_name </span>
+  <span>Welcome  </span>
   <div class="spacer"></div>
+</div> <div *ngIf="isLoggedIn; else loggedOut">
+  Logged in as {{roles}}
+  <button class="btn btn-secondary" (click)="logout()">Logout</button>
 </div>
+
 <div class="content" role="main">
-  <div *ngIf="isLoggedIn; else loggedOut">
-    Logged in as {{roles}}
-    <button class="btn btn-secondary" (click)="logout()">Logout</button>
-  </div>
+
 
   <div class="container">
 
@@ -42,18 +43,18 @@
 
             <td>  {{c.last_name}}.{{c.first_name}}</td>
             <td> {{c.email}}</td>
-            <td>path cv</td>
+            <td>{{c.ID_CV}}</td>
             <td> CV Classification </td>
             <td>
-              <button type="submit" class="btn btn-success" (click)="onSendEmail(c)">
+              <button type="submit" class="btn btn-success" (click)="sendEmail(c)">
                 Send email
               </button>
             </td>
           </tr>
         </table>
+    <br/><br/><br/>
 
-
-        <button class="btn btn-success" (click)="goToClassification()">
+        <button class="btn btn-warning" (click)="goToClassification()">
           classification interface
         </button>
 
@@ -67,7 +68,9 @@
       <!-- <strong>email:</strong> {{info.email}}<br/>-->
     </p>
     <button class="btn btn-secondary" [routerLink]="['/login-user']" (click)="logout()">Logout</button>
-  </div>
+  </div>    <br/><br/><br/>
+  <br/><br/><br/>
+
   <!-- Footer -->
   <footer>
     All rights reserved &copy; 2020
@@ -90,5 +93,4 @@
   } );
 
 </script>
-
 

@@ -3,9 +3,10 @@ package com.pfa.AppRecrutement.email;
 import com.pfa.AppRecrutement.services.NotificationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.MailException;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 public class RecrutmentSendMailController {
 
@@ -13,7 +14,7 @@ public class RecrutmentSendMailController {
     @Autowired
     private NotificationService notificationService;
 
-    @RequestMapping("/sendMailUser")
+    @RequestMapping("/sendMail")
     public String signUpSucess(String status){
         try {
             notificationService.sendMessage(status);

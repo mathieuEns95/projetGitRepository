@@ -16,6 +16,7 @@ public class UserRestAPI {
 
     @GetMapping(value="/listUsers")
     public List<User> listUsers(){
+
         return userRepository.findAll();
     }
 

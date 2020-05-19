@@ -19,7 +19,7 @@ public class NotificationService {
     public void sendMessage(String status) throws MailException {
         //send email
         SimpleMailMessage mail = new SimpleMailMessage();
-        mail.setTo("mathieu.ntono2@gmail.com");
+        mail.setTo("manelbenrached11@gmail.com");
         mail.setFrom("pfagroupe3@gmail.com");
         mail.setSubject("TEST MAIL CANDIDAT");
         mail.setText("LE STATUT DE VOTRE CANDIDATURE EST : "+status);

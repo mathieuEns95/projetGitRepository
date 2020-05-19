@@ -129,6 +129,8 @@ export class CandidatSpaceComponent implements OnInit {
 
   }
 
+
+
   envoiFichierParLeService() {
     this.envoiFichierService.postFile(this.fichierAEnvoyer).subscribe(resultat => {
 

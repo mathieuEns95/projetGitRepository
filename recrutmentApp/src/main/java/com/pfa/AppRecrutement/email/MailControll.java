@@ -37,19 +37,22 @@ public class MailControll {
         MimeMessageHelper helper = new MimeMessageHelper(message, multipart);
 
         helper.setTo("manelbenrached11@gmail.com");
-        helper.setSubject("Test email with attachments");
+        helper.setSubject("apply for a candidature");
 
-        helper.setText("Hello, Im testing email with attachments!");
+        helper.setText("attachement cv");
 
-//        String path = "E:\\Manel.pdf";
-  //      FileSystemResource file1 = new FileSystemResource(new File(path));
-     //   attachmentBodyPart.attachFile(new File("path/to/file"));
-        helper.addAttachment(file.getFileName(),new File("path/to/file"));
+    String path = "E:\\Manel.pdf";
+   // FileSystemResource file1 = new FileSystemResource(new File(path));
+    //helper.addAttachment(file.getFileName(),file1);
 
-
-        emailSender.send(message);
-        System.out.println("done...");
+        FileSystemResource file = new FileSystemResource(new File(path));
+        helper.addAttachment(file.getFilename(), file);
+         emailSender.send(message);
         return "Email Sent !";
+
+    }
+     //   emailSender.send(message);
+       // System.out.println("done...");
     }
 
-}
+

@@ -34,6 +34,45 @@ export class UserService {
     return true;
   }
 
+
+
+
+
+
+  sendEmail(mailMessage: any) {
+    let headers = new HttpHeaders();
+
+    headers = headers.set('Accept', 'application/json');
+
+    if (mailMessage) {
+      headers = headers.set('Content-Type', 'application/json');
+    }
+
+    this.http.post(`http://localhost:8080/sendMail`, mailMessage, {
+      headers
+    }).subscribe(result => {
+      console.log('Email sent!');
+    });
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   pushFileToStorage(file: File): Observable<HttpEvent<{}>> {
     const data: FormData = new FormData();
     data.append('file', file);
@@ -78,4 +117,6 @@ export class UserService {
   public deleteResource(url) {
     return this.http.delete(url);
   }
+
+
 }
